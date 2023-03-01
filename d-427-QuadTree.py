@@ -19,13 +19,14 @@ def makeMatrixString(grid):
 # Helper
 def bfsPrint(head):
     if not head: print("empty tree")
+    else: print("Constructed Tree:\n")
     q = [head]
     level = 1
     res = ''
     while len(q) != 0:
         res += f"val={q[0].val}, isLeaf={q[0].isLeaf} | "
         for child in [q[0].topLeft, q[0].topRight, q[0].bottomLeft, q[0].bottomRight]:
-            if not child is None:
+            if child:
                 q.append(child)
         level -= 1
         if level == 0:
